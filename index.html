@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Faith Perspectives</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f8f8f3;
+      color: #181818;
+    }
+    header {
+      padding: 55px 7%;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fbfbf7;
+    }
+    .logo {
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+    nav a {
+      color: #181818;
+      margin-left: 50px;
+      font-size: 24px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .page { display: none; padding: 70px 8%; }
+    .page.active { display: block; }
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr 0.4fr;
+      gap: 45px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+    .label {
+      color: #b9744f;
+      font-family: Arial, sans-serif;
+      letter-spacing: 4px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-family: Arial, sans-serif;
+      font-size: 52px;
+      line-height: 1.08;
+      margin-bottom: 24px;
+    }
+    .intro p {
+      border-left: 1px solid #222;
+      border-right: 1px solid #222;
+      padding: 0 35px;
+      font-size: 26px;
+      line-height: 1.25;
+    }
+    .number {
+      color: #c9c8c4;
+      font-family: Arial, sans-serif;
+      font-size: 70px;
+      font-weight: 800;
+      text-align: center;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: stretch;
+      margin-bottom: 90px;
+    }
+    .hero-text h2 {
+      font-family: Arial, sans-serif;
+      font-size: 76px;
+      line-height: 1.02;
+      margin-bottom: 35px;
+    }
+    .hero-text p { font-size: 26px; line-height: 1.25; }
+    .hero-img {
+      min-height: 430px;
+      background: linear-gradient(135deg, #e7e1d6, #9e8b73);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      font-size: 30px;
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+    .section-title {
+      font-family: Arial, sans-serif;
+      font-size: 62px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 28px;
+      margin-bottom: 50px;
+    }
+    .posts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+    }
+    .card {
+      border: 1px solid #ccc;
+      background: #fbfbf7;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 22px rgba(0,0,0,0.12); }
+    .thumb {
+      height: 260px;
+      background: linear-gradient(135deg, #3b2f2f, #d8b778);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 22px;
+    }
+    .card-content { padding: 28px; }
+    .meta {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .card h3 {
+      font-family: Arial, sans-serif;
+      font-size: 28px;
+      line-height: 1.25;
+      margin-bottom: 22px;
+    }
+    .card p { font-size: 20px; }
+    .editor-box {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 35px;
+      min-height: 330px;
+      font-size: 22px;
+      line-height: 1.5;
+      outline: none;
+      margin-top: 25px;
+    }
+    .top-buttons { margin-bottom: 25px; }
+    button {
+      border: none;
+      background: #181818;
+      color: white;
+      padding: 12px 18px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+      border-radius: 4px;
+    }
+    button:hover { background: #444; }
+    .references textarea {
+      width: 100%;
+      min-height: 360px;
+      padding: 25px;
+      font-size: 20px;
+      line-height: 1.5;
+      border: 1px solid #ccc;
+      resize: vertical;
+      background: white;
+    }
+    footer {
+      padding: 35px 8%;
+      border-top: 1px solid #333;
+      text-align: center;
+      margin-top: 50px;
+    }
+    @media (max-width: 900px) {
+      .intro, .hero, .posts { grid-template-columns: 1fr; }
+      .hero-text h2 { font-size: 48px; }
+      h1, .section-title { font-size: 42px; }
+      nav a { margin-left: 18px; font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">✣ Digital Faith<br />Perspectives</div>
+    <nav>
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('blog')">Blog</a>
+      <a onclick="showPage('references')">References</a>
+    </nav>
+  </header>
+
+  <section id="home" class="page active">
+    <div class="intro">
+      <div>
+        <div class="label">THE INQUIRY</div>
+        <h1>Understanding<br />the Digital<br />Crossroad</h1>
+      </div>
+      <p>We investigate the intersection of digital media and religious interpretation. This blog explores how algorithms, platforms, and online culture reshape faith, identity, and society.</p>
+      <div class="number">01</div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-text">
+        <h2>Is the algorithm replacing the altar?</h2>
+        <p>The Digital Crossroad investigates how political institutions and social platforms are reshaping our collective faith in the algorithmic age.</p>
+      </div>
+      <div class="hero-img">Add your main image here</div>
+    </div>
+
+    <h2 class="section-title">Featured Articles</h2>
+    <div class="posts">
+      <div class="card" onclick="openPost(1)">
+        <div class="thumb">Article Image</div>
+        <div class="card-content">
+          <div class="meta">LABIBA BINTE ARIF · 2 hours ago · 1 min read</div>
+          <h3>Section 1</h3>
+          <p>Click this post to write or edit your article.</p>
+        </div>
+      </div>
+      <div class="card" onclick="openPost(2)">
+        <div class="thumb">Article Image</div>
+        <div class="card-content">
+          <div class="meta">LABIBA BINTE ARIF · 3 hours ago · 5 min read</div>
+          <h3>Religion in the Digital Age</h3>
+          <p>Click this post to write your ideas.</p>
+        </div>
+      </div>
+      <div class="card" onclick="openPost(3)">
+        <div class="thumb">Article Image</div>
+        <div class="card-content">
+          <div class="meta">LABIBA BINTE ARIF · 3 hours ago · 4 min read</div>
+          <h3>Are We Molding Religion or Is It Molding Us?</h3>
+          <p>Click this post to add your writing.</p>
+        </div>
+      </div>
+      <div class="card" onclick="openPost(4)">
+        <div class="thumb">Article Image</div>
+        <div class="card-content">
+          <div class="meta">LABIBA BINTE ARIF · 4 hours ago · 3 min read</div>
+          <h3>Faith, Media, and Modern Society</h3>
+          <p>Click this fourth post to add your writing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" class="page">
+    <div class="top-buttons">
+      <button onclick="showPage('home')">Back Home</button>
+      <button onclick="savePost()">Save Post</button>
+    </div>
+    <div class="label">BLOG POST</div>
+    <h1 id="postTitle">Click a post from Home</h1>
+    <p>Write your article below. You can type directly inside the box.</p>
+    <div id="postEditor" class="editor-box" contenteditable="true">
+      Click a post from the Home page, then write your blog words here.
+    </div>
+  </section>
+
+  <section id="references" class="page references">
+    <div class="label">REFERENCES</div>
+    <h1>References Page</h1>
+    <p>Add your sources, citations, website links, book names, or article references below.</p>
+    <textarea id="referenceBox" placeholder="Example:\n1. Author Name. Article Title. Website Name. Link.\n2. Book Name, Publisher, Year.\n3. https://example.com"></textarea>
+    <br /><br />
+    <button onclick="saveReferences()">Save References</button>
+  </section>
+
+  <footer>
+    <p>© 2026 Digital Faith Perspectives</p>
+  </footer>
+
+  <script>
+    const posts = {
+      1: { title: 'Section 1', text: 'Start writing your first article here...' },
+      2: { title: 'Religion in the Digital Age', text: 'Start writing about religion and digital media here...' },
+      3: { title: 'Are We Molding Religion or Is It Molding Us?', text: 'Start writing your third article here...' },
+      4: { title: 'Faith, Media, and Modern Society', text: 'Start writing your fourth article here...' }
+    };
+
+    let currentPost = null;
+
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    function openPost(id) {
+      currentPost = id;
+      const saved = localStorage.getItem('post_' + id);
+      document.getElementById('postTitle').innerText = posts[id].title;
+      document.getElementById('postEditor').innerText = saved || posts[id].text;
+      showPage('blog');
+    }
+
+    function savePost() {
+      if (!currentPost) {
+        alert('First click a post from the Home page.');
+        return;
+      }
+      localStorage.setItem('post_' + currentPost, document.getElementById('postEditor').innerText);
+      alert('Post saved in this browser.');
+    }
+
+    function saveReferences() {
+      localStorage.setItem('references', document.getElementById('referenceBox').value);
+      alert('References saved in this browser.');
+    }
+
+    window.onload = function() {
+      document.getElementById('referenceBox').value = localStorage.getItem('references') || '';
+    };
+  </script>
+</body>
+</html>
