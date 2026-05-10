@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Faith Perspectives</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f8f8f3;
+      color: #181818;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 55px 7%;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fbfbf7;
+    }
+
+    .logo {
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+
+    nav a {
+      color: #181818;
+      margin-left: 50px;
+      font-size: 24px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .page {
+      display: none;
+      padding: 70px 8%;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .label {
+      color: #b9744f;
+      font-family: Arial, sans-serif;
+      letter-spacing: 4px;
+      font-weight: 800;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: Arial, sans-serif;
+      font-size: 52px;
+      line-height: 1.08;
+      margin-bottom: 24px;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr 0.4fr;
+      gap: 45px;
+      align-items: center;
+      margin-bottom: 70px;
+    }
+
+    .intro p {
+      border-left: 1px solid #222;
+      border-right: 1px solid #222;
+      padding: 0 35px;
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    .number {
+      color: #c9c8c4;
+      font-family: Arial, sans-serif;
+      font-size: 70px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .authors {
+      background: #fff;
+      border: 1px solid #d0d0c8;
+      padding: 28px;
+      margin-bottom: 70px;
+      font-family: Arial, sans-serif;
+      font-size: 22px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .authors strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .introduction-section {
+      background: #fbfbf7;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+      padding: 45px 0;
+      margin-bottom: 80px;
+    }
+
+    .introduction-section h2 {
+      font-family: Arial, sans-serif;
+      font-size: 50px;
+      margin-bottom: 25px;
+    }
+
+    .introduction-section p {
+      font-size: 22px;
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: stretch;
+      margin-bottom: 90px;
+    }
+
+    .hero-text h2 {
+      font-family: Arial, sans-serif;
+      font-size: 76px;
+      line-height: 1.02;
+      margin-bottom: 35px;
+    }
+
+    .hero-text p {
+      font-size: 26px;
+      line-height: 1.25;
+    }
+
+    .section-title {
+      font-family: Arial, sans-serif;
+      font-size: 62px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 28px;
+      margin-bottom: 50px;
+    }
+
+    .posts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      background: #fbfbf7;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+    }
+.thumb{
+  height:260px;
+  overflow:hidden;
+  background:#cdb98d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+    .card-content {
+      padding: 24px;
+    }
+
+    .meta {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+      color: #333;
+    }
+
+    .card h3 {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+
+    .card p {
+      font-size: 18px;
+    }
+
+    .article-box {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 38px;
+      font-size: 22px;
+      line-height: 1.7;
+      margin-top: 25px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .article-box p {
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+
+    .top-buttons {
+      margin-bottom: 25px;
+    }
+
+    button {
+      border: none;
+      background: #181818;
+      color: white;
+      padding: 12px 18px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background: #444;
+    }
+
+    .references-box {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 35px;
+      font-size: 21px;
+      line-height: 1.7;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .references-box ol {
+      padding-left: 25px;
+    }
+
+    .references-box li {
+      margin-bottom: 14px;
+    }
+
+    footer {
+      padding: 35px 8%;
+      border-top: 1px solid #333;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 1100px) {
+      .posts {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .intro,
+      .hero,
+      .posts {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text h2 {
+        font-size: 48px;
+      }
+
+      h1,
+      .section-title,
+      .introduction-section h2 {
+        font-size: 42px;
+      }
+
+      nav a {
+        margin-left: 18px;
+        font-size: 20px;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .intro p {
+        border: none;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">✣ Digital Faith<br />Perspectives</div>
+
+    <nav>
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('articles')">Blog</a>
+      <a onclick="showPage('references')">References</a>
+    </nav>
+  </header>
+
+  <section id="home" class="page active">
+    <div class="intro">
+      <div>
+        <div class="label">The Inquiry</div>
+        <h1>Understanding<br />the Digital<br />Crossroad</h1>
+      </div>
+
+      <p>
+        We investigate the intersection of digital media and religious interpretation.
+        This blog explores how algorithms, platforms, and online culture reshape faith,
+        identity, and society.
+      </p>
+
+      <div class="number">01</div>
+    </div>
+
+    <div class="authors">
+      <strong>Written By</strong>
+      <p>Labiba Binte Arif - 23301402</p>
+      <p>Mashiyat Rahman - 23301675</p>
+    </div>
+
+    <div class="introduction-section">
+      <h2>Introduction to the Project</h2>
+
+
+      <p>
+        In Bangladeshi perspective, religion and politics are often mixed up. Social media or streaming platforms which are the ways to socialize with people or share our perspectives, these platforms often become the tools of mobilizing or influencing the people for self agenda. In respect of the 2026 Bangladesh General Election, Islamist political party Jamaat e Islami and Bangladesh Nationalist Party(BNP) became head to head opponents. The Islamist party Jamaat’s motto was to implement Shariah(Islamic laws) as advocates of Islam to rule the government instead of secularism which is the current fundamental state policy. As a result they gained a good amount of public support as well as public backlash. This blog aims to analyze how social media shapes the ideological perspective of people to influence them, how religion comes in contact with politics as a result of public mobilization, debates over keeping secularism in the constitution or removing it and amid all these debates where does the inequality in case of gender and also the minorities actually stand. There is always a debate about removing Secularism from the constitution claiming that it clashes with the religious views of Islam which is the majority in our country. As Durkheim’s theory tells us about collective effervescence- what we all particularly feel in common about religion there is always a fear inside us that religion might get demolished. Geertz's theory also supports this idea that without this collective effort religion might come under a threat. Talal Asad terms religion as a discursive tradition as religion needs to be traced historically and at different places religion acts differently as we see different versions of it. Furthermore, we often witness clashes between different religious belief systems or views within the same religion. This phenomenon can be understood through the concept of tolerance explained by Brown, where she explained that power creates bias that disrupts the idea of tolerance. Even though Bangladeshi people preach pluralism, many times we face incidents where minority religions face disrespect and discrimination. However, Jamaat’s workforce lines up in this plural environment like ours because Islam is the most followed religion. For this, their idea of an Islamic state usually competes with secular and liberal thoughts. Fearing that religion can vanish anytime using these religious sentiments , symbols or religious talks thus it is very easy to manipulate  people especially in a country like ours.We will analyze pluralism and tolerance more using the lens of Berger, Hefner, and Kaviraj. 
+This raises a question in our mind: are we truly fighting over things that are helpful for society or are we fighting to prove ourselves right by leaving the main thing behind?
+      </p>
+    </div>
+
+    <div class="hero">
+      <div class="hero-text">
+        <h2>Are we mixing Religion and Politics?</h2>
+        <p>
+          The analysis below investigates how politics are often mixed with religion to reshape
+          our collective faith in the algorithmic age.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Featured Articles</h2>
+
+    <div class="posts">
+      <div class="card" onclick="openPost(1)">
+         <div class="thumb">
+  <img src="constitution.jpg" alt="Debating Secularism">
+</div>
+        <div class="card-content">
+          <div class="meta">LABIBA BINTE ARIF · 1 min read</div>
+          <h3>Debating Secularism</h3>
+          <p>Click to read this article.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openPost(2)">
+        <div class="thumb">
+  <img src="women.jpg" alt="Women in Religious Politics">
+</div>
+        <div class="card-content">
+          <div class="meta">LABIBA BINTE ARIF · 5 min read</div>
+          <h3>Where Do Women Stand in Religious Politics?</h3>
+          <p>Click to read this article.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openPost(3)">
+        <div class="thumb">
+  <img src="socials.jpg" alt="Social Media and Religion">
+</div>
+        <div class="card-content">
+          <div class="meta">MASHIYAT RAHMAN · 4 min read</div>
+          <h3>Jamaat-e-Islam’s Religious Ideology and Political Influence on Social Media</h3>
+          <p>Click to read this article.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openPost(4)">
+  <div class="thumb">
+  <img src="download.jpg" alt="Political Mobilization">
+</div>
+        <div class="card-content">
+          <div class="meta">MASHIYAT RAHMAN · 3 min read</div>
+          <h3>Jamaat's Political Support, Backlash and Political Mobilization</h3>
+          <p>Click to read this article.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="articles" class="page">
+    <h2 class="section-title">All Blog Posts</h2>
+
+    <div class="posts">
+      <div class="card" onclick="openPost(1)">
+        <div class="thumb">
+  <img src="constitution.jpg" alt="Debating Secularism">
+</div>
+        <div class="card-content">
+          <div class="meta">LABIBA BINTE ARIF · 1 min read</div>
+          <h3>Debating Secularism: Religion and Constitutional Conflict in Bangladesh</h3>
+          <p>Click to read this article.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openPost(2)">
+       <div class="thumb">
+  <img src="women.jpg" alt="Women in Religious Politics">
+</div>
+        <div class="card-content">
+          <div class="meta">LABIBA BINTE ARIF · 5 min read</div>
+          <h3>Where Do Women Stand in Religious Politics?</h3>
+          <p>Click to read this article.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openPost(3)">
+       <div class="thumb">
+  <img src="socials.jpg" alt="Social Media and Religion">
+</div>
+        <div class="card-content">
+          <div class="meta">MASHIYAT RAHMAN · 4 min read</div>
+          <h3>Jamaat-e-Islam’s Religious Ideology and Political Influence on Social Media</h3>
+          <p>Click to read this article.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openPost(4)">
+       <div class="thumb">
+  <img src="download.jpg" alt="Political Mobilization">
+</div>
+        <div class="card-content">
+          <div class="meta">MASHIYAT RAHMAN · 3 min read</div>
+          <h3>Jamaat's Political Support, Backlash and Political Mobilization</h3>
+          <p>Click to read this article.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" class="page">
+    <div class="top-buttons">
+      <button onclick="showPage('home')">Back Home</button>
+      <button onclick="showPage('articles')">All Posts</button>
+    </div>
+
+    <div class="label">Blog Post</div>
+    <h1 id="postTitle">Blog Post Title</h1>
+    <div id="postContent" class="article-box"></div>
+  </section>
+
+  <section id="references" class="page">
+    <div class="label">References</div>
+    <h1>References Page</h1>
+
+    <div class="references-box">
+      <ol>
+        <li>Brown, W. (2008). Tolerance as/in civilizational discourse. New York University Press. https://www.jstor.org/stable/24220063</li>
+        <li>Bangladesh’s politics faces a new uncertainty ahead of election. (2026). Prothom Alo English. https://en.prothomalo.com/bangladesh/politics/67g5eqmjjf</li>
+        <li>Casanova, J. (2009). The secular and secularisms. Social Research, 76(4), 1049–1066. http://www.jstor.org/stable/4097220</li>
+        <li>Durkheim, E. (1995). The elementary forms of religious life (K. Fields, Trans.). Free Press.</li>
+        <li>From marginal force to opposition party in rise: Bangladesh Jamaat-e-Islami. (2026, February 19). The Business Standard. https://www.tbsnews.net/features/panorama/marginal-force-opposition-party-rise-bangladesh-jamaat-e-islami-1361786</li>
+        <li>Hossain, S. (2004). ‘Apostates’, Ahmadis and advocates: Use and abuse of offences against religion in Bangladesh. Women Living Under Muslim Laws (WLUML).</li>
+        <li>Hossain, S. (2026, January 23). Tarique slams ‘ticket to heaven’ pledge. The Daily Star. https://www.thedailystar.net/news/tarique-slams-ticket-heaven-pledge-4088361</li>
+        <li>Hoque, M. (2020, November 15). The constitution and secular Bangladesh. The Business Standard. https://www.tbsnews.net/thoughts/constitution-and-secular-bangladesh-157765</li>
+        <li>Jamaat-e-Islami says leader’s social media account targeted in cyberattack. (2026, February 1). The Business Standard. https://www.tbsnews.net/bangladesh/politics/jamaat-e-islami-says-leaders-social-media-account-targeted-cyberattack-1349116</li>
+        <li>Kaviraj, S. (2021). Plurality and pluralism: Democracy, religious difference, and political imagination. Oxford University Press.</li>
+        <li>Orton, A. (2016). Interfaith dialogue: seven key questions for theory, policy and practice. Religion, State and Society.</li>
+        <li>Vote for the hand fan if you want peace in this world and salvation in the hereafter. (2021, December 27). BanglaNews24.com. https://www.banglanews24.com/electioncomission/news/bd/903028.details</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Digital Faith Perspectives</p>
+    <p>Written by Labiba Binte Arif - 23301402 and Mashiyat Rahman - 23301675</p>
+  </footer>
+
+  <script>
+    const posts = {
+      1: {
+        title: "Debating Secularism: Religion and Constitutional Conflict in Bangladesh",
+        content: `
+           <p> According to constitutional policy, Bangladesh is a secular state meaning it follows secularism as
+an ideological state project in cases of religion, law, ethics or morality. By secularism as statecraft
+principle, Casanova(2009) defines it as some principle of separation between religious and
+political authority, either for the sake of the neutrality of the state or for the sake of protecting the
+freedom of conscience of each individual. Although religion and secularism both are two different
+ideologies, in our country what we simply do is mix up secularism with religion and make our own
+version of it instead of drawing a line between it. We feel that the state has an obligation to donate
+to the churches, mosques or taking liability in other words. This mainly happens because every
+country has their version of secularism if traced historically. Modern secularism comes in multiple
+historical forms, in terms of different models of legal-constitutional separation of the secular state
+and religion. (Casanova,2009) Many people like Islamists view this modern ideology of ruling the
+state as a threat to their religion. Hence debate between religion vs secularism arises. Elections
+happening should neither be about choosing Islam versus secularism, nor about left versus right,
+it should be about reform versus the status quo. (The Business Standard,2026) Although the
+election that recently happened was entirely about reform and bringing a better ruling body in
+power, that transformed into a war of secularism vs religion in social media platforms and across
+the society. The idea of Secularism comes from the term Secular which means the opposite of
+religion that is irreligious, a western Christendom concept. Any discussion of the secular has to
+begin with the recognition that it emerged first as a theological category of Western Christendom
+that has no equivalent in other religious traditions or even in Eastern Christianity (Casanova,2009).
+Islamists interpret being secular means being anti-religious or anti-Islamic thus using religion as a
+tool for mobilization or influence tries to manipulate people in order to ensure Islamic laws in the
+country. By promoting secularism and socialism as symbols of irreligion, a frightening state of
+mind was created among the people of this land. The main political parties doing these were
+Jamaat-e-Islami and the Muslim League (Hoque, 2020). Their fear of religion-Islam in particular
+might get demolished thus they use religious sentiments to influence people as believers. Various
+manipulations technique was seen throughout the election period as Islamic movement says, if you
+want peace in this world and freedom in the hereafter, vote for the candidate of Hatpakha(Bangla
+News 24, 2022).Furthermore in the recent election BNP leader Tarique Zia mocked the Islamists
+party saying that a certain party is trying to deceive voters with tickets to heaven in exchange for
+votes (Hossain, 2026). When religious manipulations are used to influence people, this raises
+questions about our religious feelings we buy into. This makes us believe we do not question it.
+Religion is a unified system of beliefs and practices relative to sacred things that set forbidden
+beliefs apart (Durkheim, 1995) . When people are manipulated in the name of religion, they feel
+if they do not listen to what the Islamist parties agree with, they might be going against the religion
+by not voting for them or not listening to them. If analyzed politically, all the political groups are
+fighting against each other and to make people support their views they take the benefit of
+sentiments, sometimes making claims like tickets to Heaven, peace and freedom in Afterlife.
+Religion is ultimately used here to legalize the ruling or authority misusing the sentiments. Even
+if constitutionally the history of adding secularism is analyzed, there is always a debate going
+around social media that if Bangladesh claims to be secular why does it add Bismillahir Rahmanir
+Rahim - a religious clause at the starting of the constitutional article and term Islam as a state
+religion .Religious fundamentalists interpret secularism as irreligion as they completely oppose
+everything that goes against their religion. This raises a question in a person’s individual faith
+addressing what pluralism suggests. In order to maintain peace in the society, Pluralism as
+mentioned by Kaviraj (2021) is a political doctrine that exists in two forms firstly allowing all
+faith-groups to practice their religious life without hindrance from other faiths or from the state
+secondly acceptance of plural paths rather than living in society that is religiously entirely
+monocultural. When different religions exist in a society, it is very obvious for them to come in
+contact with each other hence developing tolerance is important. Thus, in order to avoid conflicts,
+tolerance is a practice that should be practiced by the people of the society rather than mobilizing
+things or turning them around if it goes against our ways.<p>
+        `
+      },
+
+      2: {
+        title: "Where Do Women Stand in Religious Politics?",
+        content: `
+     <p>There are always debates going around about religion vs state but in all cases the stance of the
+women remains sidelined. In the light of the recent 13th Parliamentary Elections, Monisha
+Chakraborty, one of five female candidates shares her thoughts in social platforms that though
+their organizational work has cemented this identity but still misogynistic remarks by some rival
+candidates have created obstacles for them. She participated as a candidate in a television election
+discussion, but when a candidate from the Islamist party refused to appear before a female as a
+result the channel authorities removed her (Monisha) from the discussion (Prothom Alo English,
+2026). In a male dominated society this is how power domination actually takes place where in
+the end it’s the women who are sidelined and the religious parties in the name of religion can make
+things happen in the way they want. A recent post by an Islamist party’s socials stated their stance
+on the question of women saying Jamaat's position is principled and they do not think women
+should come in the leadership. In Jamaat, it is impossible (The Business Standard,2026). Although
+this created a matter of huge debate around the social media, there have been many more claims
+against these misogynistic attitudes of the political Islamist parties. Sara (2004) in her article wrote
+about Dr. Taslima Nasrin, the award-winning feminist novelist who was charged with legal cases
+for hurting religious sentiment by allegedly calling for revision of the Qur’an to ensure women’s
+rights whereas she was only focused on advocating for women rights rather than attacking religious
+sentiments. According to these Islamists, their religion tells them how women are diverse from
+men so they should cover themselves and stay inside home. When they see these women outside
+working along with them, which is against their mindset they cannot really accept it. Kaviraj
+(2021) addresses this diversity as a system where making a political move on the basis of one
+identity immediately produces an incitement for a mirroring countermove on the opposite sides.
+When there is diversity, it’s very important to address those and respect the ideas whether we like
+the fact or not. But historically women have been subjected to domination. Brown (2008) argues
+about how women are dominated in the name of being tolerant. Everything associated with the
+family-need, dependence, inequality-is identified with the feminine and constitutes both the
+predicate and the opposite to a masculinist public sphere of rights, autonomy, formal equality,
+rationality. When talking about women there is always a power dynamic going around whether
+it’s the government making rules to control women or rules that are being passed down by the
+government. Being tolerant in our society is a political practice considered a standard that you
+have to teach, learn and practice within your political structure. In the name of tolerance this
+superiority is imposed on women. The valuation and practice of tolerance simultaneously confirms
+the superiority of the west (Brown, 2008). Here by the west, he means the ones who are always on
+the powerful side. As a result, when there is power being enforced there is a debate of inequality
+and inclusivity. Even if we preach about gender equality, people consider male females as binary,
+but outside that umbrella there exists other third genders too who are not allowed to be in the space.
+That is, the people dominating are the ones deciding what to keep under the umbrella and what
+not to. How we imagine tolerance is something that creates more equality, but it's actually a very
+unequal playing view where it's the dominating deciding how the dominated will proceed. Thus,
+whoever is in power has the vested interest to figure out everything. Religion mixed with gender
+and power dynamic creates a particular practice in our society. Durkheim (1995) explains the idea
+that religion is a natural expression of society, society's moment of reflecting on its own
+transcendent power. The ultimate thing to make people connected in the basic unit is the society
+and religion here with practices attached to it acts as building blocks for the society. Instead of
+taking religion as a way of life we are mixing it with politics which gives rise to conflicts “Imran”
+(24 years old, student). To stay in a community, exchange of dialogues to share views is very
+important whether we take the view or not. Orton (2016) supports this idea that focusing on a
+positive way of building more cohesive communities is possible if there are improved dialogues
+between people with different religious faiths rather than perceived threat and conflict which can
+arise from such divisions. Even in Sarah’s article we get the same idea. The Constitution of
+Bangladesh allows some liberty and freedom to make free and fair criticism of any religion or faith
+(Sara, 2004). Though the constitution gives us the right to raise questions over religion, the
+Islamists taking things in their hands does public mobilization or try to punish by themselves like
+we saw in Taslima Nasrin’s case. As a result, this gives rise to conflicts instead of improving
+things.<p>
+        `
+      },
+
+      3: {
+        title: "Jamaat-e-Islam’s Religious Ideology and Political Influence on Social Media",
+        content: `
+          <p>
+            The relationship between religion and society is always changing. People shape the way religion is
+            practiced, discussed, and represented. At the same time, religion shapes people’s values, choices,
+            communities, and identities. In the digital world, this relationship becomes even more complex.
+          </p>
+
+          <p>
+            Online platforms allow users to present religious ideas in new ways. They can create videos, write
+            posts, design pages, and speak to large audiences. This means people are actively molding how
+            religion appears in public spaces. However, digital platforms also influence users by controlling
+            what content becomes popular and what messages are repeated.
+          </p>
+
+          <p>
+            Therefore, the question is not simple. We are molding religion through digital expression, but
+            digital religious content is also molding us. It affects how we think, what we believe, and how we
+            interact with others.
+          </p>
+        `
+      },
+
+      4: {
+        title: "Jamaat's Political Support, Backlash and Political Mobilization",
+        content: `
+          <p>
+            Faith and media are strongly connected in modern society. Media platforms influence how people
+            understand culture, morality, politics, and belief. Religious ideas can now travel quickly across
+            the world through posts, videos, podcasts, websites, and online communities.
+          </p>
+
+          <p>
+            This fast movement of information can create positive change. People can learn from different
+            traditions, ask questions, and connect with others who share similar values. Digital media can give
+            a voice to communities that may not have been heard before.
+          </p>
+
+          <p>
+            At the same time, media can simplify serious topics. Complex religious discussions may become short
+            quotes or emotional arguments. Because of this, users should be responsible when creating, sharing,
+            and reading online content. Modern society needs digital awareness, respect, and careful
+            interpretation.
+          </p>
+        `
+      }
+    };
+
+    function showPage(pageId) {
+      document.querySelectorAll(".page").forEach(function (page) {
+        page.classList.remove("active");
+      });
+
+      document.getElementById(pageId).classList.add("active");
+      window.scrollTo(0, 0);
+    }
+
+    function openPost(id) {
+      document.getElementById("postTitle").innerText = posts[id].title;
+      document.getElementById("postContent").innerHTML = posts[id].content;
+      showPage("blog");
+    }
+  </script>
+</body>
+</html>
